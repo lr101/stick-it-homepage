@@ -34,6 +34,9 @@ const Footer = () => {
           <Link href="mailto:info@lr-projects.de" className="hover:text-gray-800">
             Contact
           </Link>
+          <Link href="https://github.com/lr101/stick-it-homepage" className="hover:text-gray-800">
+            GitHub
+          </Link>
         </div>
 
         {/* Copyright */}
