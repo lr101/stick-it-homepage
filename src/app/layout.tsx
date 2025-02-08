@@ -3,6 +3,10 @@ import "~/styles/globals.css";
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
 import TopNav from "~/components/TopNav";
+import { ThemeProvider } from "next-themes";
+import ScrollToTop from "~/components/ScrollToTop";
+import Footer from "~/components/Footer";
+
 
 export const metadata: Metadata = {
   title: "Stick-It Map",
@@ -15,9 +19,18 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${GeistSans.variable}`}>
-      <body className="bg-gradient-to-b from-[#2e026d] to-[#221d38] text-white">
-      <TopNav />
-      {children}</body>
+      <body className="bg-gradient-to-b from-[#ffdca7] to-[#ff9900] text-black">
+      <ThemeProvider
+          attribute="class"
+          enableSystem={true}
+          defaultTheme="system"
+        >
+        <TopNav />
+        {children}
+        <ScrollToTop />
+        <Footer />
+        </ThemeProvider>
+      </body>
     </html>
   );
 }

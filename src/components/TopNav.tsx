@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import NavLink from "./NavLink";
 import MenuOverlay from "./MenuOverlay";
@@ -14,24 +14,33 @@ export type NavLinkType = {
 const navLinks: NavLinkType[] = [
   {
     title: "About",
-    path: "#about-me",
+    path: "https://lr-projects.de",
   },
   {
-    title: "Projects",
-    path: "#projects",
+    title: "Our Stickers",
+    path: "https://www.etsy.com/shop/MonaSticker",
   },
   {
-    title: "Skills",
-    path: "#skills",
+    title: "Delete Account",
+    path: "https://stick-it.lr-projects.de/public/delete-account/code",
   },
 ];
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const [sticky, setSticky] = useState(false);
+
+  const handleScroll = () => {
+    setSticky(window.scrollY >= 80);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed mx-auto border border-[#33353F]  border-l-transparent border-r-transparent border-t-transparent top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100">
-      <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-12 py-2">
+    <nav className={`fixed top-0 z-40 w-full pb-5 transition-all duration-300 text-white ${sticky ? " shadow-lg bg-black pt-5" : "shadow-none md:pt-14 pt-5"}`}>
+      <div className="flex container flex-wrap items-center justify-between mx-auto px-12 py-2">
         <Link
           href={"/"}
           className="flex items-center align-bottom"
@@ -43,7 +52,7 @@ const Navbar = () => {
                 height={64}
                 className="h-8 w-8 md:h-12 md:w-12 lg:h-16 lg:w-16" 
                 />
-            <span className="pl-4 text-2xl md:text-5xl text-white font-semibold">Stick-It Map</span>
+            <span className="pl-4 text-2xl md:text-5xl font-semibold">Stick-It Map</span>
         </Link>
         <div className="mobile-menu block md:hidden">
           {!navbarOpen ? (
