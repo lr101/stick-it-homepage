@@ -1,0 +1,8 @@
+
+services:
+  app:
+    image: ghcr.io/lr101/stick-it-homepage:latest
+    container_name: stick-it-homepage
+    working_dir: /app
+    ports:
+      - "3003:3000"
