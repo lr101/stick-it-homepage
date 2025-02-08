@@ -9,7 +9,7 @@ Check out the full app here:
 - [Stick-It Backend](https://github.com/lr101/MonaServer)
 - [Stick-It API](https://github.com/lr101/MonaServerApi)
 
-Hosted on [LR-Projects](https://lr-projects.de/stick-it).
+Hosted on [LR-Projects](https://stick-it-map.lr-projects.de).
 
 
 ## Technologies
